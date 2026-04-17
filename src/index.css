@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0A1428;
+  --color-navy-light: #12213D;
+  --color-medical-green: #00C48C;
+  --color-medical-green-hover: #00A375;
+  --color-soft-gray: #A0AEC0;
+  
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-navy);
+  }
+  body, html {
+    background-color: theme('colors.navy');
+    color: white;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/[0.03] backdrop-blur-[10px] border border-white/10 rounded-[16px];
+  }
+  .glass-card {
+    @apply bg-white/[0.03] border border-white/10 rounded-[20px] transition-all;
+  }
+  .sleek-badge {
+    @apply inline-flex items-center px-[12px] py-[6px] bg-[rgba(0,196,140,0.2)] text-[#00C48C] rounded-[50px] text-[11px] font-[700] uppercase tracking-[1px] w-fit;
+  }
+  .sleek-heading {
+    @apply text-[40px] md:text-[56px] leading-[1.1] font-[800] tracking-[-2px] mb-[16px] text-white;
+  }
+  .sleek-heading-gradient {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(90deg, #FFFFFF 0%, var(--color-medical-green) 100%);
+  }
+  .sleek-subtext {
+    @apply text-[#A0AEC0] text-[18px] leading-[1.6] max-w-[500px];
+  }
+  .sleek-btn-primary {
+    @apply bg-medical-green text-navy px-[24px] py-[10px] rounded-[10px] font-[700] text-[14px] shadow-[0_4px_15px_rgba(0,196,140,0.2)] transition-shadow hover:shadow-[0_6px_20px_rgba(0,196,140,0.3)];
+  }
+  .sleek-stat-value {
+    @apply text-[24px] text-medical-green font-bold mb-[4px];
+  }
+  .sleek-stat-label {
+    @apply text-[12px] text-[#A0AEC0] uppercase tracking-[1px];
+  }
+  .sleek-booking-widget {
+    @apply bg-[#12213D] border border-white/10 rounded-[24px] p-[32px] shadow-[0_20px_40px_rgba(0,0,0,0.3)] flex flex-col gap-[20px];
+  }
+  .sleek-form-label {
+    @apply block text-[12px] text-[#A0AEC0] mb-[8px] font-[600] uppercase;
+  }
+  .sleek-form-input {
+    @apply w-full bg-[#0A1428] border border-white/10 py-[12px] px-[16px] rounded-[12px] text-white text-[14px] focus:outline-none focus:border-medical-green appearance-none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-navy;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-navy-light rounded-full border-[2px] border-navy;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-medical-green;
+}
